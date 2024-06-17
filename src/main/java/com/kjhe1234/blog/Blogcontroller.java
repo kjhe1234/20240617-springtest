@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -79,29 +80,43 @@ public class Blogcontroller {
 		return "join";
 	}
 	
-	@RequestMapping(value = "/joinOk")
-	public String jounOk(HttpServletRequest request, Model model) {
+//	@RequestMapping(value = "/joinOk")
+//	public String jounOk(HttpServletRequest request, Model model) {
+//		
+//		String mid = request.getParameter("memberid");
+//		String mpw = request.getParameter("memberpw");
+//		String mname = request.getParameter("membername");
+//		String mage = request.getParameter("memberage");
+//		String memail = request.getParameter("memberemail");
 		
-		String mid = request.getParameter("memberid");
-		String mpw = request.getParameter("memberpw");
-		String mname = request.getParameter("membername");
-		String mage = request.getParameter("memberage");
-		String memail = request.getParameter("memberemail");
+//		MemberDto memberDto = new MemberDto(mid, mpw, mname, mage, memail);
+//		MemberDto memberDto = new MemberDto();
+//		memberDto.setMemberid(mid);
+//		memberDto.setMemberid(mpw);
+//		memberDto.setMemberid(mname);
+//		memberDto.setMemberid(mage);
+//		memberDto.setMemberid(memail);
 		
-		MemberDto memberDto = new MemberDto(mid, mpw, mname, mage, memail);
-		
-		
-//		model.addAttribute("mid", mid);
-//		model.addAttribute("mpw", mpw);
-//		model.addAttribute("mname", mname);
-//		model.addAttribute("mage", mage);
-//		model.addAttribute("memail", memail);
-			
-		model.addAttribute("mdto", memberDto);
-		
-		return "joinOk";
-	}
+//		model.addAttribute("mdto", memberDto);
+//		
+//		return "joinOk";
+
 	
+@RequestMapping(value = "/joinOk")
+public String jounOk(MemberDto memberDto, Model model) {
 	
+	model.addAttribute("mdto", memberDto);
 	
+	return "joinOk";
+}
+
+@RequestMapping(value = "/student/{studentId}")
+public String student (@PathVariable String studentId, Model model) {
+	
+	model.addAttribute("sid", studentId);
+	
+	return "studentid";
+}
+	
+		
 }
