@@ -4,13 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 가입</title>
+<title>프리 갤러리 게시판</title>
 </head>
 <body>
-	저는 member.jsp입니다.
-	<h2>멤버는 ${mname}입니다.</h2>
-	<hr>
-	<a href="sample">sample1.jsp로 가기</a>
+
+	저는 프리 갤러리 게시판 입니다.
 
 </body>
 </html>
